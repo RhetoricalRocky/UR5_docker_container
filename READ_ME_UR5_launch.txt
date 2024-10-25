@@ -10,19 +10,26 @@ run container, first step:
 	  robot_ip:=<robot_ip> target_filename:="${HOME}/my_robot_calibration.yaml"
 
 new container
+	**need to download docker file didnt work? 
+		(sudo apt install ros-<ROS-DISTRO>-rqt-joint-trajectory-controller)
 
 	$ roslaunch ur_robot_driver <robot_type>_bringup.launch robot_ip:=192.168.12.52
 
 new container
-	** need to download docker file download did not work
-	/scaled_pos_joint_traj_controller/follow_joint_trajectory
-
+	
 	rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller
 
-new container Moveit (should launch and be in the same pose as actual robot 
+new container moveit (should launch and be in the same pose as actual robot 
 	
 	roslaunch ur5e_moveit_config moveit_planning_execution.launch
 	roslaunch ur5e_moveit_config moveit_rviz.launch rviz_config:=$(rospack find ur5e_moveit_config)/launch/moveit.rviz
 	
 On the UR5 launch External_control_node (currently stuck as it gives error connection could not be established: network is unreachable)
 this needs to work for the controller to appear in joint_trajectory_controller
+
+
+Notes for me
+sudo apt install ros-noetic-moveit*
+suro apt install ros-noetic-ur5*
+
+https://github.com/ros-industrial-attic/ur_modern_driver/issues/111 (reverse port issue maybe?)
