@@ -1,6 +1,8 @@
 Website: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/tree/master?tab=readme-ov-file#extract-calibration-information
 
 Connect ethernet cable to robot dont go on MIR wifi though stay on eduroam
+robot ip = 192.168.12.52 or 192.168.12.251      internal ip 10.0.023
+
 
 run container, first step:
 
@@ -9,10 +11,10 @@ run container, first step:
 
 new container
 
-	$ roslaunch ur_robot_driver <robot_type>_bringup.launch robot_ip:=192.168.56.101
+	$ roslaunch ur_robot_driver <robot_type>_bringup.launch robot_ip:=192.168.12.52
 
 new container
-
+	** need to download docker file download did not work
 	/scaled_pos_joint_traj_controller/follow_joint_trajectory
 
 	rosrun rqt_joint_trajectory_controller rqt_joint_trajectory_controller
